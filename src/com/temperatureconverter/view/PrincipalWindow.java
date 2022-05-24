@@ -1,10 +1,12 @@
 package com.temperatureconverter.view;
 
+import javax.swing.JFrame;
+
 /**
  * @author Zabieru
  * @version 1.0
  */
-public class PrincipalWindow extends javax.swing.JFrame {
+public class PrincipalWindow extends JFrame {
 
     /**
      * Inicia los componentes de la ventana principal
@@ -26,16 +28,7 @@ public class PrincipalWindow extends javax.swing.JFrame {
         setTitle("Conversor de Temperaturas");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 621, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-        );
+        mainPanel.setLayout(new java.awt.GridLayout(3, 1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
