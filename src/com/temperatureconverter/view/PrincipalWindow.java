@@ -6,7 +6,7 @@ import javax.swing.JFrame;
  * @author Zabieru
  * @version 1.0
  */
-public class PrincipalWindow extends JFrame {
+public final class PrincipalWindow extends JFrame {
 
     /**
      * Constructor que crea la ventana principal.

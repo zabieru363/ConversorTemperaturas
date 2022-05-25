@@ -1,12 +1,13 @@
 package com.temperatureconverter.view;
 
 import javax.swing.JFrame;
+import com.temperatureconverter.classes.Constants;
 
 /**
  * @author Zabieru
  * @version 1.0
  */
-public class Application extends JFrame {
+public final class Application extends JFrame {
 
     /**
      * Crea la ventana de la aplicación.
@@ -15,6 +16,13 @@ public class Application extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         initComponents();
+        fillComboBox();
+    }
+    
+    private void fillComboBox(){
+        for(String system : Constants.DEGREES_SYSTEMS){
+            systemDegreesSelector.addItem(system);
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -26,6 +34,9 @@ public class Application extends JFrame {
         enterDegreesPanel = new javax.swing.JPanel();
         degreesLbl = new javax.swing.JLabel();
         degrees = new javax.swing.JTextField();
+        changeDegreesSystemPanel = new javax.swing.JPanel();
+        nowLbl = new javax.swing.JLabel();
+        systemDegreesSelector = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +70,34 @@ public class Application extends JFrame {
 
         mainPanel.add(enterDegreesPanel);
 
+        nowLbl.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        nowLbl.setText("De:");
+
+        systemDegreesSelector.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout changeDegreesSystemPanelLayout = new javax.swing.GroupLayout(changeDegreesSystemPanel);
+        changeDegreesSystemPanel.setLayout(changeDegreesSystemPanelLayout);
+        changeDegreesSystemPanelLayout.setHorizontalGroup(
+            changeDegreesSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(changeDegreesSystemPanelLayout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(nowLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(systemDegreesSelector, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
+        );
+        changeDegreesSystemPanelLayout.setVerticalGroup(
+            changeDegreesSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(changeDegreesSystemPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(changeDegreesSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nowLbl)
+                    .addComponent(systemDegreesSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(changeDegreesSystemPanel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,9 +113,12 @@ public class Application extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel changeDegreesSystemPanel;
     private javax.swing.JTextField degrees;
     private javax.swing.JLabel degreesLbl;
     private javax.swing.JPanel enterDegreesPanel;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel nowLbl;
+    private javax.swing.JComboBox<String> systemDegreesSelector;
     // End of variables declaration//GEN-END:variables
 }
