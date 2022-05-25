@@ -12,6 +12,8 @@ public class Application extends JFrame {
      * Crea la ventana de la aplicación.
      */
     public Application() {
+        setResizable(false);
+        setLocationRelativeTo(null);
         initComponents();
     }
     
