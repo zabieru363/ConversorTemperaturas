@@ -14,6 +14,7 @@ public class PrincipalWindow extends JFrame {
      */
     public PrincipalWindow() {
         setSize(800,500);
+        setResizable(false);
         setLocationRelativeTo(null);
         initComponents();
     }
@@ -39,6 +40,7 @@ public class PrincipalWindow extends JFrame {
         aplicationLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         aplicationLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/termometro.png"))); // NOI18N
 
+        startBtn.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         startBtn.setText("Iniciar");
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
