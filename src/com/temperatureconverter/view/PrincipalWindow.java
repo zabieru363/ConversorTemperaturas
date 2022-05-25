@@ -44,7 +44,9 @@ public class PrincipalWindow extends JFrame {
         aplicationLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         aplicationLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/termometro.png"))); // NOI18N
 
+        startBtn.setBackground(new java.awt.Color(102, 102, 102));
         startBtn.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        startBtn.setForeground(new java.awt.Color(255, 255, 255));
         startBtn.setText("Iniciar");
         startBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
