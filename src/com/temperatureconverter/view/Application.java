@@ -23,6 +23,10 @@ public final class Application extends JFrame {
         for(String system : Constants.DEGREES_SYSTEMS){
             systemDegreesSelector.addItem(system);
         }
+        
+        for(String system : Constants.DEGREES_SYSTEMS){
+            systemDegreesSelectorTo.addItem(system);
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -37,6 +41,8 @@ public final class Application extends JFrame {
         changeDegreesSystemPanel = new javax.swing.JPanel();
         nowLbl = new javax.swing.JLabel();
         systemDegreesSelector = new javax.swing.JComboBox<>();
+        toLbl = new javax.swing.JLabel();
+        systemDegreesSelectorTo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,15 +81,26 @@ public final class Application extends JFrame {
 
         systemDegreesSelector.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
+        toLbl.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        toLbl.setText("A:");
+
+        systemDegreesSelectorTo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout changeDegreesSystemPanelLayout = new javax.swing.GroupLayout(changeDegreesSystemPanel);
         changeDegreesSystemPanel.setLayout(changeDegreesSystemPanelLayout);
         changeDegreesSystemPanelLayout.setHorizontalGroup(
             changeDegreesSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeDegreesSystemPanelLayout.createSequentialGroup()
                 .addGap(129, 129, 129)
-                .addComponent(nowLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(systemDegreesSelector, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(changeDegreesSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(changeDegreesSystemPanelLayout.createSequentialGroup()
+                        .addComponent(toLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(systemDegreesSelectorTo, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(changeDegreesSystemPanelLayout.createSequentialGroup()
+                        .addComponent(nowLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(systemDegreesSelector, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         changeDegreesSystemPanelLayout.setVerticalGroup(
@@ -93,7 +110,11 @@ public final class Application extends JFrame {
                 .addGroup(changeDegreesSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nowLbl)
                     .addComponent(systemDegreesSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(changeDegreesSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(toLbl)
+                    .addComponent(systemDegreesSelectorTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         mainPanel.add(changeDegreesSystemPanel);
@@ -106,7 +127,7 @@ public final class Application extends JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
         );
 
         pack();
@@ -120,5 +141,7 @@ public final class Application extends JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel nowLbl;
     private javax.swing.JComboBox<String> systemDegreesSelector;
+    private javax.swing.JComboBox<String> systemDegreesSelectorTo;
+    private javax.swing.JLabel toLbl;
     // End of variables declaration//GEN-END:variables
 }
