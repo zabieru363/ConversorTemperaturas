@@ -30,10 +30,14 @@ public class PrincipalWindow extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conversor de Temperaturas");
+        setBackground(new java.awt.Color(51, 51, 51));
         setBounds(new java.awt.Rectangle(0, 0, 500, 800));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        mainPanel.setBackground(new java.awt.Color(51, 51, 51));
+
         aplicationTitle.setFont(new java.awt.Font("Bookman Old Style", 0, 36)); // NOI18N
+        aplicationTitle.setForeground(new java.awt.Color(255, 255, 255));
         aplicationTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         aplicationTitle.setText("Conversor de temperaturas");
 
@@ -42,6 +46,7 @@ public class PrincipalWindow extends JFrame {
 
         startBtn.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         startBtn.setText("Iniciar");
+        startBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
