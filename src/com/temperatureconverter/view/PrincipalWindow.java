@@ -9,8 +9,7 @@ import javax.swing.JFrame;
 public class PrincipalWindow extends JFrame {
 
     /**
-     * Inicia los componentes de la ventana principal
-     * de la aplicación.
+     * Constructor que crea la ventana principal.
      */
     public PrincipalWindow() {
         setSize(800,500);
@@ -49,6 +48,11 @@ public class PrincipalWindow extends JFrame {
         startBtn.setForeground(new java.awt.Color(255, 255, 255));
         startBtn.setText("Iniciar");
         startBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        startBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startAplication(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -88,6 +92,12 @@ public class PrincipalWindow extends JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void startAplication(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startAplication
+        Application app = new Application();
+        app.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_startAplication
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
