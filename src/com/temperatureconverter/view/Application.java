@@ -243,7 +243,7 @@ public final class Application extends JFrame {
      * @param evt El evento, en este caso al hacer clic en el botón.
      */
     private void convert(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convert
-        Double result;
+        double result;
 
         if(degrees.getText().isEmpty()){
             Constants.showError("No se ha especificado una cantidad de grados.");

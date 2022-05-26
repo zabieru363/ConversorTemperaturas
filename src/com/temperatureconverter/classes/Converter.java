@@ -13,7 +13,7 @@ public class Converter {
      * Celsius a grados Fahrenheit.
      * @return Los grados Fahrenheit correspondientes.
      */
-    public static Double c2f(Double degrees){
+    public static Double c2f(double degrees){
         return 1.8 * degrees + 32;
     }
     
@@ -22,8 +22,7 @@ public class Converter {
      * Fahrenheit a grados Celsius.
      * @return Los grados Celsius correspondientes.
      */
-    public static Double f2c(Double degrees){
-        return (degrees - 32) / 1.8;
+    public static double f2c(double degrees){
+        return Math.round((degrees - 32) / 1.8);
     }
-    
 }
