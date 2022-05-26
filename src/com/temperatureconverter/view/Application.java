@@ -236,6 +236,11 @@ public final class Application extends JFrame {
         }
     }//GEN-LAST:event_close
 
+    /**
+     * Método que controla las acciones de los jcomboboxes
+     * al pulsar el botón.
+     * @param evt El evento, en este caso al hacer clic en el botón.
+     */
     private void convert(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convert
         // De Celsius a Fahrenheit.
         if(systemDegreesSelector.getSelectedItem() == "Celsius" &&
