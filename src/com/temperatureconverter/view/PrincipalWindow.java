@@ -29,7 +29,7 @@ public final class PrincipalWindow extends JFrame {
         aplicationLogo = new javax.swing.JLabel();
         startBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Conversor de Temperaturas");
         setBackground(new java.awt.Color(51, 51, 51));
         setBounds(new java.awt.Rectangle(0, 0, 500, 800));
