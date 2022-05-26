@@ -244,21 +244,26 @@ public final class Application extends JFrame {
      */
     private void convert(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convert
         Double result;
-        
-        // De Celsius a Fahrenheit.
-        if(systemDegreesSelector.getSelectedItem() == "Celsius" &&
-            systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
-            
-            if(degrees.getText().contains(",")) {
+
+        if(degrees.getText().isEmpty()){
+            Constants.showError("No se ha especificado una cantidad de grados.");
+        }else{
+            if(degrees.getText().contains(",")){
                 Constants.showError("Debes utilizar el . en vez de la , para expresar decimales.");
             }else{
-                try{
+                // De Celsius a Fahrenheit.
+                if(systemDegreesSelector.getSelectedItem() == "Celsius"
+                   && systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
                     result = Converter.c2f(Double.parseDouble(degrees.getText()));
                     resultField.setText(String.valueOf(result + "ºF"));
-                }catch(NumberFormatException ex){
-                    System.out.println("Se produjo una excepción " + ex);
                 }
             }
+        }
+        if(systemDegreesSelector.getSelectedItem() == "Fahrenheit"
+                && systemDegreesSelectorTo.getSelectedItem() == "Celsius"){
+
+            // De Fahrenheit a Celsius.
+            resultField.setText("Hola");
         }
     }//GEN-LAST:event_convert
 
