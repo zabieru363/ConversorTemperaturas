@@ -1,6 +1,10 @@
 package com.temperatureconverter.view;
 
 import com.temperatureconverter.classes.Constants;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Calendar;
 import javax.swing.JFrame;
 
@@ -90,6 +94,11 @@ public final class PrincipalWindow extends JFrame {
         instagram.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         instagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/insagram-logo.png"))); // NOI18N
         instagram.setText("@zabieru.exe");
+        instagram.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openInstagram(evt);
+            }
+        });
         socialNetworksPanel.add(instagram);
 
         twitter.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -97,6 +106,11 @@ public final class PrincipalWindow extends JFrame {
         twitter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         twitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/twitter-logo.png"))); // NOI18N
         twitter.setText("@Zabieru222");
+        twitter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openTwitter(evt);
+            }
+        });
         socialNetworksPanel.add(twitter);
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -171,6 +185,22 @@ public final class PrincipalWindow extends JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_close
+
+    private void openInstagram(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openInstagram
+        try{
+            Desktop.getDesktop().browse(new URI("https://www.instagram.com/zabieru.exe/"));
+        }catch(IOException | URISyntaxException ex){
+            System.out.println("Error. No se pudeo abrir la pagina de instagram del creador");
+        }
+    }//GEN-LAST:event_openInstagram
+
+    private void openTwitter(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openTwitter
+        try{
+            Desktop.getDesktop().browse(new URI("https://twitter.com/Zabieru222"));
+        }catch(IOException | URISyntaxException ex){
+            System.out.println("Error. No se pudeo abrir la pagina de twitter del creador");
+        }
+    }//GEN-LAST:event_openTwitter
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

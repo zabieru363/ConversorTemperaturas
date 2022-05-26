@@ -188,6 +188,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="@zabieru.exe"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="openInstagram"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="twitter">
               <Properties>
@@ -203,6 +206,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="@Zabieru222"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="openTwitter"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
