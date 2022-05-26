@@ -200,7 +200,11 @@ public final class Application extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeApplication(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeApplication
+        Integer response = Constants.close();
         
+        if(response == 0){
+            System.exit(0);
+        }
     }//GEN-LAST:event_closeApplication
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

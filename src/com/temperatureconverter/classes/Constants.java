@@ -21,10 +21,10 @@ public class Constants {
     public static Integer close(){
         Object[] options = {"Si", "No"};
         
-        Integer respuesta = JOptionPane.showOptionDialog(null, "¿Quieres salir de la aplicación?",
+        Integer response = JOptionPane.showOptionDialog(null, "¿Quieres salir de la aplicación?",
                 "Salir", JOptionPane.YES_NO_OPTION, 
                 JOptionPane.QUESTION_MESSAGE, null, options, null);
         
-        return respuesta;
+        return response;
     }
 }
