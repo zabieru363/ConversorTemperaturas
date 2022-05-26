@@ -10,6 +10,11 @@ import javax.swing.JOptionPane;
  */
 public class Constants {
     
+    /**
+     * Array de strings que contiene los diferentes
+     * sistemas de grados disponibles.
+     * Se utilizará para cargar los valores en los jcomboboxes.
+     */
     public static final String[] DEGREES_SYSTEMS = {
         "Celsius", "Fahrenheit", "Kelvin"
     };

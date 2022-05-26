@@ -137,6 +137,11 @@ public final class Application extends JFrame {
         mainPanel.add(changeDegreesSystemPanel);
 
         convertBtn.setText("Convertir");
+        convertBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                convert(evt);
+            }
+        });
 
         javax.swing.GroupLayout buttonsPanelLayout = new javax.swing.GroupLayout(buttonsPanel);
         buttonsPanel.setLayout(buttonsPanelLayout);
@@ -204,6 +209,12 @@ public final class Application extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método que muestra una ventana de confirmación
+     * para salir de la aplicación, al pulsar el botón
+     * salir de la aplicación.
+     * @param evt El evento, en este caso en hacer clic en el botón.
+     */
     private void closeApplication(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeApplication
         Integer response = Constants.close();
         
@@ -212,6 +223,11 @@ public final class Application extends JFrame {
         }
     }//GEN-LAST:event_closeApplication
 
+    /**
+     * Método que muestra una ventana de confirmación
+     * para salir de la aplicación pero al cerrar la ventana.
+     * @param evt El evento, en este caso al hacer clic en la X.
+     */
     private void close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_close
         Integer response = Constants.close();
         
@@ -219,6 +235,14 @@ public final class Application extends JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_close
+
+    private void convert(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convert
+        // De Celsius a Fahrenheit.
+        if(systemDegreesSelector.getSelectedItem() == "Celsius" &&
+            systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
+            
+        }
+    }//GEN-LAST:event_convert
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonsPanel;

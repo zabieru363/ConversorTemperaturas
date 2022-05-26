@@ -113,6 +113,11 @@ public final class PrincipalWindow extends JFrame {
         dispose();
     }//GEN-LAST:event_startApplication
 
+    /**
+     * Método que muestra una ventana de confirmación
+     * para salir de la aplicación pero al cerrar la ventana.
+     * @param evt El evento, en este caso al hacer clic en la X.
+     */
     private void close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_close
         Integer response = Constants.close();
         
