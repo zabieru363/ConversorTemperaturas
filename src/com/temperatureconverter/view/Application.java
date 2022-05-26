@@ -50,6 +50,8 @@ public final class Application extends JFrame {
         buttonsPanel = new javax.swing.JPanel();
         convertBtn = new javax.swing.JButton();
         resultField = new javax.swing.JTextField();
+        otherActionsPanel = new javax.swing.JPanel();
+        closeAppBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,10 +67,13 @@ public final class Application extends JFrame {
         enterDegreesPanelLayout.setHorizontalGroup(
             enterDegreesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(enterDegreesPanelLayout.createSequentialGroup()
-                .addGap(151, 151, 151)
                 .addGroup(enterDegreesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(degreesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(degrees, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(enterDegreesPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(degrees, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, enterDegreesPanelLayout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(degreesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(156, 156, 156))
         );
         enterDegreesPanelLayout.setVerticalGroup(
@@ -154,6 +159,32 @@ public final class Application extends JFrame {
 
         mainPanel.add(buttonsPanel);
 
+        closeAppBtn.setText("Salir de la aplicación");
+        closeAppBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeApplication(evt);
+            }
+        });
+
+        javax.swing.GroupLayout otherActionsPanelLayout = new javax.swing.GroupLayout(otherActionsPanel);
+        otherActionsPanel.setLayout(otherActionsPanelLayout);
+        otherActionsPanelLayout.setHorizontalGroup(
+            otherActionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(otherActionsPanelLayout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(closeAppBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(199, Short.MAX_VALUE))
+        );
+        otherActionsPanelLayout.setVerticalGroup(
+            otherActionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(otherActionsPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(closeAppBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(otherActionsPanel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,15 +199,21 @@ public final class Application extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void closeApplication(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeApplication
+        // TODO add your handling code here:
+    }//GEN-LAST:event_closeApplication
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonsPanel;
     private javax.swing.JPanel changeDegreesSystemPanel;
+    private javax.swing.JButton closeAppBtn;
     private javax.swing.JButton convertBtn;
     private javax.swing.JTextField degrees;
     private javax.swing.JLabel degreesLbl;
     private javax.swing.JPanel enterDegreesPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel nowLbl;
+    private javax.swing.JPanel otherActionsPanel;
     private javax.swing.JTextField resultField;
     private javax.swing.JComboBox<String> systemDegreesSelector;
     private javax.swing.JComboBox<String> systemDegreesSelectorTo;
