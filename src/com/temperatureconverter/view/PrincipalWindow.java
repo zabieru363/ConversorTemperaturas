@@ -2,10 +2,12 @@ package com.temperatureconverter.view;
 
 import com.temperatureconverter.classes.Constants;
 import java.awt.Desktop;
+import java.awt.Image;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Calendar;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -27,6 +29,8 @@ public final class PrincipalWindow extends JFrame {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         copyright.setText("Powered by Zabieru © - " + year);
+        Image icon = new ImageIcon(getClass().getResource("/resources/favicon.png")).getImage();
+        setIconImage(icon);
     }
 
     @SuppressWarnings("unchecked")

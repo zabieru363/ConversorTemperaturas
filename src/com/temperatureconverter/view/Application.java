@@ -3,6 +3,8 @@ package com.temperatureconverter.view;
 import javax.swing.JFrame;
 import com.temperatureconverter.classes.Constants;
 import com.temperatureconverter.classes.Converter;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  * Clase que crea la ventana principal de la aplicación.
@@ -19,6 +21,8 @@ public final class Application extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         initComponents();
+        Image icon = new ImageIcon(getClass().getResource("/resources/favicon.png")).getImage();
+        setIconImage(icon);
         fillComboBox();
     }
     
