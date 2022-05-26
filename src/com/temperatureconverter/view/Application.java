@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import com.temperatureconverter.classes.Constants;
 
 /**
+ * Clase que crea la ventana principal de la aplicación.
  * @author Zabieru
  * @version 1.0
  */
@@ -13,12 +14,16 @@ public final class Application extends JFrame {
      * Crea la ventana de la aplicación.
      */
     public Application() {
+        setTitle("Conversor de temperaturas");
         setResizable(false);
         setLocationRelativeTo(null);
         initComponents();
         fillComboBox();
     }
     
+    /**
+     * Rellena los 2 jcombobox que hay en la aplicación
+     */
     private void fillComboBox(){
         for(String system : Constants.DEGREES_SYSTEMS){
             systemDegreesSelector.addItem(system);
@@ -32,7 +37,6 @@ public final class Application extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         mainPanel = new javax.swing.JPanel();
         enterDegreesPanel = new javax.swing.JPanel();
@@ -43,6 +47,9 @@ public final class Application extends JFrame {
         systemDegreesSelector = new javax.swing.JComboBox<>();
         toLbl = new javax.swing.JLabel();
         systemDegreesSelectorTo = new javax.swing.JComboBox<>();
+        buttonsPanel = new javax.swing.JPanel();
+        convertBtn = new javax.swing.JButton();
+        resultField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,6 +126,34 @@ public final class Application extends JFrame {
 
         mainPanel.add(changeDegreesSystemPanel);
 
+        convertBtn.setText("Convertir");
+
+        javax.swing.GroupLayout buttonsPanelLayout = new javax.swing.GroupLayout(buttonsPanel);
+        buttonsPanel.setLayout(buttonsPanelLayout);
+        buttonsPanelLayout.setHorizontalGroup(
+            buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonsPanelLayout.createSequentialGroup()
+                .addGroup(buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buttonsPanelLayout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(convertBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(buttonsPanelLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(resultField, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+        buttonsPanelLayout.setVerticalGroup(
+            buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonsPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(convertBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(resultField, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        mainPanel.add(buttonsPanel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,19 +162,22 @@ public final class Application extends JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel buttonsPanel;
     private javax.swing.JPanel changeDegreesSystemPanel;
+    private javax.swing.JButton convertBtn;
     private javax.swing.JTextField degrees;
     private javax.swing.JLabel degreesLbl;
     private javax.swing.JPanel enterDegreesPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel nowLbl;
+    private javax.swing.JTextField resultField;
     private javax.swing.JComboBox<String> systemDegreesSelector;
     private javax.swing.JComboBox<String> systemDegreesSelectorTo;
     private javax.swing.JLabel toLbl;

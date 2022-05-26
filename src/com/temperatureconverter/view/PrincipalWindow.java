@@ -3,6 +3,7 @@ package com.temperatureconverter.view;
 import javax.swing.JFrame;
 
 /**
+ * Clase main que ejecuta la ventana inicial de la aplicación.
  * @author Zabieru
  * @version 1.0
  */
@@ -50,7 +51,7 @@ public final class PrincipalWindow extends JFrame {
         startBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         startBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startAplication(evt);
+                startApplication(evt);
             }
         });
 
@@ -93,11 +94,18 @@ public final class PrincipalWindow extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void startAplication(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startAplication
+    /**
+     * Método que activa el evento del botón iniciar
+     * y llama al constructor de la ventana principal de
+     * la aplicación.
+     * @param evt El evento de acción. En este caso al hacer
+     * clic en el botón.
+     */
+    private void startApplication(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startApplication
         Application app = new Application();
         app.setVisible(true);
         dispose();
-    }//GEN-LAST:event_startAplication
+    }//GEN-LAST:event_startApplication
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
