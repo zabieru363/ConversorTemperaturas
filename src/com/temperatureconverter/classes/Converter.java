@@ -43,4 +43,13 @@ public class Converter {
     public static double k2c(double degrees){
         return degrees - 273;
     }
+    
+    /**
+     * Método estático para transformar grados
+     * Fahrenheit a grados Kelvin.
+     * @return Los grados Kelvin correspondientes.
+     */
+    public static double f2k(double degrees){
+        return Math.round(degrees - 32 / 1.8 + 273);
+    }
 }
