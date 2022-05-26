@@ -25,4 +25,13 @@ public class Converter {
     public static double f2c(double degrees){
         return Math.round((degrees - 32) / 1.8);
     }
+    
+    /**
+     * Método estático para transformar grados
+     * Celsius a grados Kelvin.
+     * @return Los grados Kelvin correspondientes.
+     */
+    public static double c2k(double degrees){
+        return degrees + 273;
+    }
 }
