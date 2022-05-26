@@ -13,8 +13,8 @@ public class Converter {
      * Celsius a grados Fahrenheit.
      * @return Los grados Fahrenheit correspondientes.
      */
-    public static Double c2f(double degrees){
-        return 1.8 * degrees + 32;
+    public static double c2f(double degrees){
+        return Math.round((degrees * 9 / 5) + 32);
     }
     
     /**
@@ -23,7 +23,7 @@ public class Converter {
      * @return Los grados Celsius correspondientes.
      */
     public static double f2c(double degrees){
-        return Math.round((degrees - 32) / 1.8);
+        return Math.round((degrees - 32) * 5 / 9);
     }
     
     /**
@@ -32,7 +32,7 @@ public class Converter {
      * @return Los grados Kelvin correspondientes.
      */
     public static double c2k(double degrees){
-        return degrees + 273;
+        return Math.round(degrees + 273.15);
     }
     
     /**
@@ -41,7 +41,7 @@ public class Converter {
      * @return Los grados Celsius correspondientes.
      */
     public static double k2c(double degrees){
-        return degrees - 273;
+        return Math.round(degrees - 273.15);
     }
     
     /**
@@ -50,6 +50,15 @@ public class Converter {
      * @return Los grados Kelvin correspondientes.
      */
     public static double f2k(double degrees){
-        return Math.round(degrees - 32 / 1.8 + 273);
+        return Math.round((degrees - 32 / 1.8) + 273);
+    }
+    
+    /**
+     * Método estático para transformar grados
+     * Kelvin a grados Fahrenheit.
+     * @return Los grados Fahrenheit correspondientes.
+     */
+    public static double k2f(double degrees){
+        return Math.round((degrees - 273.15) * 9 / 15 + 32);
     }
 }

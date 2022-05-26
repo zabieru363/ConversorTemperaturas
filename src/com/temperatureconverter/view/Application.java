@@ -243,7 +243,7 @@ public final class Application extends JFrame {
      * @param evt El evento, en este caso al hacer clic en el botón.
      */
     private void convert(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convert
-        double result;
+        Double result;
 
         if(degrees.getText().isEmpty()){
             Constants.showError("No se ha especificado una cantidad de grados.");
@@ -284,6 +284,13 @@ public final class Application extends JFrame {
                     // De Fahrenheit a Kelvin.
                     result = Converter.f2k(Double.parseDouble(degrees.getText()));
                     resultField.setText(String.valueOf(result + "ºK"));
+                }
+                
+                if(systemDegreesSelector.getSelectedItem() == "Kelvin"
+                && systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
+                    // De Fahrenheit a Kelvin.
+                    result = Converter.k2f(Double.parseDouble(degrees.getText()));
+                    resultField.setText(String.valueOf(result + "ºF"));
                 }
             }
         }
