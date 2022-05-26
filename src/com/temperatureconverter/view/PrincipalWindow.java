@@ -1,6 +1,7 @@
 package com.temperatureconverter.view;
 
 import com.temperatureconverter.classes.Constants;
+import java.util.Calendar;
 import javax.swing.JFrame;
 
 /**
@@ -14,10 +15,14 @@ public final class PrincipalWindow extends JFrame {
      * Constructor que crea la ventana principal.
      */
     public PrincipalWindow() {
-        setSize(800,500);
         setResizable(false);
         setLocationRelativeTo(null);
         initComponents();
+        setBounds(10, 10, 730, 730);
+        // Utilizo la clase Calendar para hacer el año dinámico.
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        copyright.setText("Powered by Zabieru © - " + year);
     }
 
     @SuppressWarnings("unchecked")
@@ -27,6 +32,7 @@ public final class PrincipalWindow extends JFrame {
         mainPanel = new javax.swing.JPanel();
         aplicationTitle = new javax.swing.JLabel();
         aplicationLogo = new javax.swing.JLabel();
+        copyright = new javax.swing.JLabel();
         startBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -50,6 +56,9 @@ public final class PrincipalWindow extends JFrame {
         aplicationLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         aplicationLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/termometro.png"))); // NOI18N
 
+        copyright.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        copyright.setForeground(new java.awt.Color(255, 255, 255));
+
         startBtn.setBackground(new java.awt.Color(102, 102, 102));
         startBtn.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         startBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -68,12 +77,14 @@ public final class PrincipalWindow extends JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(aplicationTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(aplicationLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addGap(184, 184, 184)
-                            .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                    .addComponent(aplicationLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addComponent(copyright))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(226, 226, 226)
+                        .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,8 +92,10 @@ public final class PrincipalWindow extends JFrame {
                 .addComponent(aplicationTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(aplicationLogo)
-                .addGap(57, 57, 57)
-                .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(copyright)
+                .addGap(29, 29, 29)
+                .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -135,6 +148,7 @@ public final class PrincipalWindow extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aplicationLogo;
     private javax.swing.JLabel aplicationTitle;
+    private javax.swing.JLabel copyright;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JButton startBtn;
     // End of variables declaration//GEN-END:variables
