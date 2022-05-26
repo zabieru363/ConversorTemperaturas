@@ -54,6 +54,11 @@ public final class Application extends JFrame {
         closeAppBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                close(evt);
+            }
+        });
 
         mainPanel.setLayout(new java.awt.GridLayout(4, 0));
 
@@ -206,6 +211,14 @@ public final class Application extends JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_closeApplication
+
+    private void close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_close
+        Integer response = Constants.close();
+        
+        if(response == 0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_close
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonsPanel;
