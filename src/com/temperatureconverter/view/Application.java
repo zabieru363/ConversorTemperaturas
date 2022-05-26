@@ -2,6 +2,7 @@ package com.temperatureconverter.view;
 
 import javax.swing.JFrame;
 import com.temperatureconverter.classes.Constants;
+import com.temperatureconverter.classes.Converter;
 
 /**
  * Clase que crea la ventana principal de la aplicación.
@@ -242,10 +243,22 @@ public final class Application extends JFrame {
      * @param evt El evento, en este caso al hacer clic en el botón.
      */
     private void convert(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convert
+        Double result;
+        
         // De Celsius a Fahrenheit.
         if(systemDegreesSelector.getSelectedItem() == "Celsius" &&
             systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
             
+            if(degrees.getText().contains(",")) {
+                
+            }else{
+                try{
+                    result = Converter.c2f(Double.parseDouble(degrees.getText()));
+                    resultField.setText(String.valueOf(result + "ºF"));
+                }catch(NumberFormatException ex){
+                    System.out.println("Se produjo una excepción " + ex);
+                }
+            }
         }
     }//GEN-LAST:event_convert
 
