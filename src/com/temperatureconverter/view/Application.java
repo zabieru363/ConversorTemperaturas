@@ -250,7 +250,7 @@ public final class Application extends JFrame {
             systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
             
             if(degrees.getText().contains(",")) {
-                
+                Constants.showError("Debes utilizar el . en vez de la , para expresar decimales.");
             }else{
                 try{
                     result = Converter.c2f(Double.parseDouble(degrees.getText()));
