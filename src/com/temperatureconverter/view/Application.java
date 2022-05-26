@@ -251,19 +251,20 @@ public final class Application extends JFrame {
             if(degrees.getText().contains(",")){
                 Constants.showError("Debes utilizar el . en vez de la , para expresar decimales.");
             }else{
-                // De Celsius a Fahrenheit.
                 if(systemDegreesSelector.getSelectedItem() == "Celsius"
                    && systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
+                    // De Celsius a Fahrenheit.
                     result = Converter.c2f(Double.parseDouble(degrees.getText()));
                     resultField.setText(String.valueOf(result + "ºF"));
                 }
-            }
-        }
-        if(systemDegreesSelector.getSelectedItem() == "Fahrenheit"
+                
+                if(systemDegreesSelector.getSelectedItem() == "Fahrenheit"
                 && systemDegreesSelectorTo.getSelectedItem() == "Celsius"){
-
-            // De Fahrenheit a Celsius.
-            resultField.setText("Hola");
+                    // De Fahrenheit a Celsius.
+                    result = Converter.f2c(Double.parseDouble(degrees.getText()));
+                    resultField.setText(String.valueOf(result + "ºC"));
+                }
+            }
         }
     }//GEN-LAST:event_convert
 
