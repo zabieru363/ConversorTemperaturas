@@ -55,12 +55,15 @@ public final class Application extends JFrame {
         closeAppBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 close(evt);
             }
         });
 
+        mainPanel.setBackground(new java.awt.Color(153, 153, 153));
+        mainPanel.setForeground(new java.awt.Color(255, 255, 255));
         mainPanel.setLayout(new java.awt.GridLayout(4, 0));
 
         degreesLbl.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -97,12 +100,16 @@ public final class Application extends JFrame {
         nowLbl.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         nowLbl.setText("De:");
 
+        systemDegreesSelector.setBackground(new java.awt.Color(51, 51, 51));
         systemDegreesSelector.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        systemDegreesSelector.setForeground(new java.awt.Color(255, 255, 255));
 
         toLbl.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         toLbl.setText("A:");
 
+        systemDegreesSelectorTo.setBackground(new java.awt.Color(51, 51, 51));
         systemDegreesSelectorTo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        systemDegreesSelectorTo.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout changeDegreesSystemPanelLayout = new javax.swing.GroupLayout(changeDegreesSystemPanel);
         changeDegreesSystemPanel.setLayout(changeDegreesSystemPanelLayout);
@@ -137,12 +144,17 @@ public final class Application extends JFrame {
 
         mainPanel.add(changeDegreesSystemPanel);
 
+        convertBtn.setBackground(new java.awt.Color(51, 51, 51));
+        convertBtn.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        convertBtn.setForeground(new java.awt.Color(255, 255, 255));
         convertBtn.setText("Convertir");
         convertBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 convert(evt);
             }
         });
+
+        resultField.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout buttonsPanelLayout = new javax.swing.GroupLayout(buttonsPanel);
         buttonsPanel.setLayout(buttonsPanelLayout);
@@ -170,6 +182,9 @@ public final class Application extends JFrame {
 
         mainPanel.add(buttonsPanel);
 
+        closeAppBtn.setBackground(new java.awt.Color(51, 51, 51));
+        closeAppBtn.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        closeAppBtn.setForeground(new java.awt.Color(255, 255, 255));
         closeAppBtn.setText("Salir de la aplicación");
         closeAppBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
