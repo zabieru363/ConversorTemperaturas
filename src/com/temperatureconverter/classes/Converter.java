@@ -34,4 +34,13 @@ public class Converter {
     public static double c2k(double degrees){
         return degrees + 273;
     }
+    
+    /**
+     * Método estático para transformar grados
+     * Kelvin a grados Celsius.
+     * @return Los grados Celsius correspondientes.
+     */
+    public static double k2c(double degrees){
+        return degrees - 273;
+    }
 }

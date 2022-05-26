@@ -271,6 +271,13 @@ public final class Application extends JFrame {
                     result = Converter.c2k(Double.parseDouble(degrees.getText()));
                     resultField.setText(String.valueOf(result + "ºK"));
                 }
+                
+                if(systemDegreesSelector.getSelectedItem() == "Kelvin"
+                && systemDegreesSelectorTo.getSelectedItem() == "Celsius"){
+                    // De Kelvin a Celsius.
+                    result = Converter.k2c(Double.parseDouble(degrees.getText()));
+                    resultField.setText(String.valueOf(result + "ºC"));
+                }
             }
         }
     }//GEN-LAST:event_convert
