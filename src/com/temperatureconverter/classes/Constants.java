@@ -32,4 +32,12 @@ public class Constants {
         
         return response;
     }
+    
+    /**
+     * Método que permite mostrar un mensaje de error
+     * @param message Mensaje a mostrar
+     */
+    public static void showError(String message){
+        JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
+    }
 }
