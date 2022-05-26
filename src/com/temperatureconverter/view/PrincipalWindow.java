@@ -1,5 +1,6 @@
 package com.temperatureconverter.view;
 
+import com.temperatureconverter.classes.Constants;
 import javax.swing.JFrame;
 
 /**
@@ -33,6 +34,11 @@ public final class PrincipalWindow extends JFrame {
         setBackground(new java.awt.Color(51, 51, 51));
         setBounds(new java.awt.Rectangle(0, 0, 500, 800));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                close(evt);
+            }
+        });
 
         mainPanel.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -106,6 +112,14 @@ public final class PrincipalWindow extends JFrame {
         app.setVisible(true);
         dispose();
     }//GEN-LAST:event_startApplication
+
+    private void close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_close
+        Integer response = Constants.close();
+        
+        if(response == 0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_close
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
