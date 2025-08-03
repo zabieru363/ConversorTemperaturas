@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import com.temperatureconverter.classes.Constants;
 import com.temperatureconverter.classes.Converter;
 import java.awt.Image;
+import java.util.Map;
+import java.util.function.Function;
 import javax.swing.ImageIcon;
 
 /**
@@ -12,6 +14,18 @@ import javax.swing.ImageIcon;
  * @version 1.0
  */
 public final class Application extends JFrame {
+
+    private static final double CELSIUS_LIMIT = -273.15;
+    private static final double FAHRENHEIT_LIMIT = -459.67;
+
+    private final Map<String, Function<Double, Double>> CONVERSION_MAP = Map.of(
+        "Celsius-Fahrenheit", Converter::c2f,
+        "Fahrenheit-Celsius", Converter::f2c,
+        "Celsius-Kelvin", Converter::c2k,
+        "Kelvin-Celsius", Converter::k2c,
+        "Fahrenheit-Kelvin", Converter::f2k,
+        "Kelvin-Fahrenheit", Converter::k2f
+    );
 
     /**
      * Crea la ventana de la aplicación.
@@ -238,10 +252,8 @@ public final class Application extends JFrame {
     private void closeApplication(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeApplication
         Integer response = Constants.close();
         
-        if(response == 0){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_closeApplication
+        if(response == 0) System.exit(0);
+    }
 
     /**
      * Método que muestra una ventana de confirmación
@@ -250,11 +262,34 @@ public final class Application extends JFrame {
      */
     private void close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_close
         Integer response = Constants.close();
-        
-        if(response == 0){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_close
+        if(response == 0) System.exit(0);
+    }
+
+    /**
+     * Comprueba si los datos introducidos son válidos. Si no lo son,
+     * devuelve el mensaje de error correspondiente.
+     * @param degrees La cantidad de grados introducida por el usuario.
+     * @param from El sistema de grados de origen.
+     * @param to El sistema de grados de destino.
+     * @return Un mensaje de error si los datos no son válidos o "" si los
+     * datos son correctos.
+     */
+    private String getErrorMessage(String degrees, String from, String to) {
+        var errorMessage = "";
+
+        if(degrees.isEmpty()) errorMessage = "No se ha especificado una cantidad de grados.";
+        else if (degrees.contains(",")) errorMessage = "Debes utilizar el . en vez de la , para expresar decimales.";
+        else if (!degrees.matches("-?\\d+(\\.\\d+)?")) errorMessage = "La cantidad de grados debe ser un número válido.";
+        else if (from.equals(to)) errorMessage = "El sistema de grados de origen y destino no puede ser el mismo.";
+        else if (from.equals("Kelvin") && Double.parseDouble(degrees) < 0)
+            errorMessage = "La temperatura en Kelvin no puede ser negativa.";
+        else if (from.equals("Celsius") && Double.parseDouble(degrees) < CELSIUS_LIMIT)
+            errorMessage = "La temperatura en Celsius no puede ser menor a -273.15.";
+        else if (from.equals("Fahrenheit") && Double.parseDouble(degrees) < FAHRENHEIT_LIMIT)
+            errorMessage = "La temperatura en Fahrenheit no puede ser menor a -459.67.";
+
+        return errorMessage;
+    }
 
     /**
      * Método que controla las acciones de los jcomboboxes
@@ -262,58 +297,22 @@ public final class Application extends JFrame {
      * @param evt El evento, en este caso al hacer clic en el botón.
      */
     private void convert(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convert
-        Double result;
+        var degreesValue = degrees.getText();
+        var from = systemDegreesSelector.getSelectedItem().toString();
+        var to = systemDegreesSelectorTo.getSelectedItem().toString();
+        var errorMessage = getErrorMessage(degreesValue, from, to);
 
-        if(degrees.getText().isEmpty()){
-            Constants.showError("No se ha especificado una cantidad de grados.");
-        }else{
-            if(degrees.getText().contains(",")){
-                Constants.showError("Debes utilizar el . en vez de la , para expresar decimales.");
-            }else{
-                if(systemDegreesSelector.getSelectedItem() == "Celsius"
-                   && systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
-                    // De Celsius a Fahrenheit.
-                    result = Converter.c2f(Double.parseDouble(degrees.getText()));
-                    resultField.setText(String.valueOf(result + "ºF"));
-                }
-                
-                if(systemDegreesSelector.getSelectedItem() == "Fahrenheit"
-                && systemDegreesSelectorTo.getSelectedItem() == "Celsius"){
-                    // De Fahrenheit a Celsius.
-                    result = Converter.f2c(Double.parseDouble(degrees.getText()));
-                    resultField.setText(String.valueOf(result + "ºC"));
-                }
-                
-                if(systemDegreesSelector.getSelectedItem() == "Celsius"
-                && systemDegreesSelectorTo.getSelectedItem() == "Kelvin"){
-                    // De Celsius a Kelvin.
-                    result = Converter.c2k(Double.parseDouble(degrees.getText()));
-                    resultField.setText(String.valueOf(result + "ºK"));
-                }
-                
-                if(systemDegreesSelector.getSelectedItem() == "Kelvin"
-                && systemDegreesSelectorTo.getSelectedItem() == "Celsius"){
-                    // De Kelvin a Celsius.
-                    result = Converter.k2c(Double.parseDouble(degrees.getText()));
-                    resultField.setText(String.valueOf(result + "ºC"));
-                }
-                
-                if(systemDegreesSelector.getSelectedItem() == "Fahrenheit"
-                && systemDegreesSelectorTo.getSelectedItem() == "Kelvin"){
-                    // De Fahrenheit a Kelvin.
-                    result = Converter.f2k(Double.parseDouble(degrees.getText()));
-                    resultField.setText(String.valueOf(result + "ºK"));
-                }
-                
-                if(systemDegreesSelector.getSelectedItem() == "Kelvin"
-                && systemDegreesSelectorTo.getSelectedItem() == "Fahrenheit"){
-                    // De Fahrenheit a Kelvin.
-                    result = Converter.k2f(Double.parseDouble(degrees.getText()));
-                    resultField.setText(String.valueOf(result + "ºF"));
-                }
-            }
+        if(!errorMessage.isEmpty())
+            Constants.showError(errorMessage);
+        else{
+            var key = from + "-" + to;
+
+            Double result = CONVERSION_MAP.containsKey(key) ?
+                CONVERSION_MAP.get(key).apply(Double.parseDouble(degreesValue)) : null;
+
+            if (result != null) resultField.setText(result + "º" + to.charAt(0));
         }
-    }//GEN-LAST:event_convert
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonsPanel;

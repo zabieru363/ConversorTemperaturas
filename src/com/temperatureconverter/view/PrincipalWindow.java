@@ -1,11 +1,7 @@
 package com.temperatureconverter.view;
 
 import com.temperatureconverter.classes.Constants;
-import java.awt.Desktop;
 import java.awt.Image;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -44,8 +40,6 @@ public final class PrincipalWindow extends JFrame {
         startBtn = new javax.swing.JButton();
         socialNetworksPanel = new javax.swing.JPanel();
         mail = new javax.swing.JLabel();
-        instagram = new javax.swing.JLabel();
-        twitter = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Conversor de Temperaturas");
@@ -92,30 +86,6 @@ public final class PrincipalWindow extends JFrame {
         mail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/mail-logo.png"))); // NOI18N
         mail.setText("zabierujlc@gmail.com");
         socialNetworksPanel.add(mail);
-
-        instagram.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        instagram.setForeground(new java.awt.Color(255, 255, 255));
-        instagram.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        instagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/insagram-logo.png"))); // NOI18N
-        instagram.setText("@zabieru.exe");
-        instagram.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                openInstagram(evt);
-            }
-        });
-        socialNetworksPanel.add(instagram);
-
-        twitter.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        twitter.setForeground(new java.awt.Color(255, 255, 255));
-        twitter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        twitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/twitter-logo.png"))); // NOI18N
-        twitter.setText("@Zabieru222");
-        twitter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                openTwitter(evt);
-            }
-        });
-        socialNetworksPanel.add(twitter);
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -184,27 +154,8 @@ public final class PrincipalWindow extends JFrame {
      */
     private void close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_close
         Integer response = Constants.close();
-        
-        if(response == 0){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_close
-
-    private void openInstagram(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openInstagram
-        try{
-            Desktop.getDesktop().browse(new URI("https://www.instagram.com/zabieru.exe/"));
-        }catch(IOException | URISyntaxException ex){
-            System.out.println("Error. No se pudeo abrir la pagina de instagram del creador");
-        }
-    }//GEN-LAST:event_openInstagram
-
-    private void openTwitter(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openTwitter
-        try{
-            Desktop.getDesktop().browse(new URI("https://twitter.com/Zabieru222"));
-        }catch(IOException | URISyntaxException ex){
-            System.out.println("Error. No se pudeo abrir la pagina de twitter del creador");
-        }
-    }//GEN-LAST:event_openTwitter
+        if(response == 0)System.exit(0);
+    }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
@@ -216,11 +167,9 @@ public final class PrincipalWindow extends JFrame {
     private javax.swing.JLabel aplicationLogo;
     private javax.swing.JLabel aplicationTitle;
     private javax.swing.JLabel copyright;
-    private javax.swing.JLabel instagram;
     private javax.swing.JLabel mail;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel socialNetworksPanel;
     private javax.swing.JButton startBtn;
-    private javax.swing.JLabel twitter;
     // End of variables declaration//GEN-END:variables
 }

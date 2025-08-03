@@ -3,7 +3,7 @@
 Aplicación de escritorio sencilla desarrollada en Java Swing para convertir entre Celsius, Fahrenheit y Kelvin.
 
 ## Requisitos
-- JDK 8 o superior
+- JDK 10 o superior (recomendado JDK 17)
 
 ## Uso
 Puedes compilar el archivo `PrincipaLWindow.java` y ejecutarlo directamente desde cualquier IDE.
